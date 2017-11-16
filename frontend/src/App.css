@@ -1,0 +1,22 @@
+fieldset {
+  border: none;
+}
+
+form {
+  padding: 2%;
+  display: inline-block;
+  position: relative;
+}
+
+.Display {
+  padding: 3%;
+}
+#column {
+  display: inline-block;
+  position: relative;
+  width: 20%;
+}
+
+body {
+  padding: 2%;
+}
