@@ -51,45 +51,16 @@ app.get('/felines', (req,res) => {
 })
 
 
-app.listen(8081, () => {
-    console.log('server is running on 8081');
+//For Deployment
+//middleware for express server to set up folder to serve static files (for access to all bundle.js and images)
+app.use(express.static(__dirname + "/frontend/build"))
+
+
+app.get("*", (req,res) => {
+    console.log("server running on ubuntu")
+    res.sendFile('index.html', {root: __dirname + "/frontend/build"});
 })
 
-
-// app.post('/felines', (req,res) => {
-//     let newFeline = new Feline(req.body);
-//     Feline.find({breed: req.body.breed})
-//         .then(object=> {
-//             if(object[0].breed === req.body.breed) {
-//                 res.send({match: true});
-//             }
-//             else {
-//                 newFeline.save()
-//                     .then(savedObject => {
-//                         res.json(savedObject);
-//                     })
-//                     .catch(err => {
-//                         console.log(err);
-//                         res.status(400).json({err})
-//                     })
-//             }
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(400)
-//             .json({ err});
-//         })
-// })
-
-
-// app.post('/links', (req,res) => {
-//     let newLink = new Link(req.body);
-//     newLink.save()
-//         .then(savedObject => {
-//             res.json(savedObject);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(400).json({err})
-//         })
-// })
+app.listen(process.env.PORT || 8081, () => {
+    console.log('SERVER RUNNING ON 8080');
+})

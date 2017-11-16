@@ -26,7 +26,7 @@ class App extends Component {
     this.displayFriendlyCats = this.displayFriendlyCats.bind(this)
   }
   displayFriendlyCats() {
-    const promise = axios.get("http://localhost:8081/felines")
+    const promise = axios.get("/felines")
     promise.then((result) => {
       console.log(result.data)
       let catbreed = []
@@ -50,7 +50,7 @@ class App extends Component {
     })
   }
   displayHealthyLongFurCats() {
-    const promise = axios.get("http://localhost:8081/felines")
+    const promise = axios.get("/felines")
     promise.then((result) => {
       console.log(result.data)
       let catbreed = []
@@ -74,7 +74,7 @@ class App extends Component {
     })
   }
   componentDidMount() {
-    const promise = axios.get("http://localhost:8081/felines")
+    const promise = axios.get("/felines")
     promise.then((result) => {
       console.log(result.data)
       let catbreed = []
@@ -97,7 +97,7 @@ class App extends Component {
   }
 
   displayAllCats() {
-    const promise = axios.get("http://localhost:8081/felines")
+    const promise = axios.get("/felines")
     promise.then((result) => {
       console.log(result.data)
       let catbreed = []
@@ -120,7 +120,7 @@ class App extends Component {
   }
 
   displayCats() {
-    const promise = axios.get("http://localhost:8081/felines")
+    const promise = axios.get("/felines")
     promise.then((result) => {
       console.log(result.data)
       let catbreed = []
@@ -156,7 +156,7 @@ class App extends Component {
   submit(e) {
     e.preventDefault()
     const promise = axios.post(
-      "http://localhost:8081/felines",
+      "/felines",
       {
         "breed": this.state.breed,
         "health": this.state.health,
