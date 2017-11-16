@@ -62,5 +62,5 @@ app.get("*", (req,res) => {
 })
 
 app.listen(process.env.PORT || 8081, () => {
-    console.log('SERVER RUNNING ON 8080');
+    console.log('SERVER RUNNING ON 8081');
 })
